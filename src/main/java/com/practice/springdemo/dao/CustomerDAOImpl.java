@@ -30,4 +30,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		session.save(customer);
 	}
 
+	public Customer getCustomer(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		return session.get(Customer.class, id);
+	}
+
 }
