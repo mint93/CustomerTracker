@@ -27,7 +27,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	public void saveCustomer(Customer customer) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(customer);
+		//saveOrUpdate: if primaryKey/id empty, then INSERT new customer (save), else UPDATE existing customer (update)
+		session.saveOrUpdate(customer);
 	}
 
 	public Customer getCustomer(int id) {
